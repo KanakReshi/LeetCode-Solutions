@@ -1,0 +1,29 @@
+#include<math.h>
+char kthCharacter(int k) {   
+    int pow_1 = 1;
+    int no_of_gen, temp, result;
+    
+    if(k == 1){
+        return 'a';
+    }
+    
+    for(int i = 0; i <= 500; i++){
+        pow_1 *= 2;
+        if(pow_1 >= k){
+            temp = i;
+            no_of_gen = pow_1;
+            break;
+        }
+    }
+    
+    int prev_size = no_of_gen / 2;
+    
+    if(k <= prev_size) {
+        return kthCharacter(k);
+    } 
+    else {
+        result = k - prev_size;
+        char base_char = kthCharacter(result);
+        return base_char + 1;
+    }
+}
