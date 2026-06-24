@@ -1,18 +1,16 @@
 class Solution {
 public:
-    int create(vector<int>& nums, int i, int prev,vector<vector<int>>& dp) {
-        if (i == nums.size())return 0;
-        if (dp[i][prev + 1] != -1)return dp[i][prev + 1];
-        int notPick = create(nums, i + 1, prev, dp);
-        int pick = 0;
-        if (prev == -1 || nums[i] > nums[prev])
-            pick = 1 + create(nums, i + 1, i, dp);
-        return dp[i][prev + 1] = max(pick, notPick);
-    }
-
     int lengthOfLIS(vector<int>& nums) {
         int n = nums.size();
-        vector<vector<int>> dp(n, vector<int>(n + 1, -1));
-        return create(nums, 0, -1, dp);
+        vector<int> dp(n+1,1);
+        dp[0] = 1;
+        for(int i = 1 ; i < n ;i++){
+            for(int j = i ; j>=0 ;j--){
+                if(nums[j] < nums[i]){
+                    dp[i] = max(dp[i],1+dp[j]);
+                }
+            }
+        }
+        return *max_element(dp.begin(),dp.end());
     }
 };
