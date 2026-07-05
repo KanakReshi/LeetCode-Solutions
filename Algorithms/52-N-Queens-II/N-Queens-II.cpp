@@ -1,5 +1,5 @@
 class Solution {
-     bool check(int row,int col , vector<string> &board , vector<vector<string>> &result , int n){
+     bool check(int row,int col , vector<string> &board , int &result , int n){
         int temp_row = row;
         int temp_col = col;
         while(temp_col >= 0){
@@ -22,9 +22,9 @@ class Solution {
         return true;
     }
 
-    void create(int col, vector<string> &board , vector<vector<string>> &result,int n){
+    void create(int col, vector<string> &board , int &result,int n){
         if(col==n){
-            result.push_back(board);
+            result++;
             return;
         }
         for(int i = 0 ; i < n ;i++){
@@ -38,9 +38,9 @@ class Solution {
     }
 public:
     int totalNQueens(int n) {
-        vector<vector<string>>result;
+        int result = 0;
         vector<string> board(n, string(n,'.'));
         create(0,board,result,n);
-        return result.size();
+        return result;
     }
 };
