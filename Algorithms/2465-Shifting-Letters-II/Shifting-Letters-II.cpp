@@ -11,10 +11,10 @@ public:
             diff[end + 1] -= direction;
         }
         int steps = 0;
-        for(int i = 0 ; i < n ; i++){
+        for(int i = 0 ;i < n ; i++){
             steps += diff[i];
-            int shift = ((steps % 26) + 26) % 26;
-            s[i] = 'a' + (s[i] - 'a' + shift) % 26;
+            int shifts = ((steps % 26)+26)%26;
+            s[i] = 'a' + (s[i] - 'a' + shifts)%26;
         }
         return s;
     }
