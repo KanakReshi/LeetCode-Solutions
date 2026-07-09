@@ -11,6 +11,7 @@ public:
         for(int i = 1;i <= n;i++){
             result.push_back(stoi(lexo[i]));
         }
+
         return result;
     }
 };
