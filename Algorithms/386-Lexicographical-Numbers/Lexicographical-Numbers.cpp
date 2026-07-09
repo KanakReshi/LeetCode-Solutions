@@ -1,5 +1,6 @@
 class Solution {
 public:
+
     vector<int> lexicalOrder(int n) {
         vector<string>lexo(n+1);
         lexo[0] = "00";
