@@ -13,8 +13,6 @@ public:
                 }
             }
         }
-        // if (q.empty())
-        //     return -1;
         int result = 0;
         while (!q.empty()) {
             result++;
