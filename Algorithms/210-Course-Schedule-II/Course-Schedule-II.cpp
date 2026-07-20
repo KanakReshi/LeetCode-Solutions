@@ -11,7 +11,6 @@ public:
             parent[prerequisites[i][0]]++;
         }
         int j = 0;
-        // int k = 0;
         for (int i = 0; i < n; i++) {
             if (parent[i] == 0)
                 result.push_back(i);
@@ -19,7 +18,6 @@ public:
         while (j < result.size()) {
             int node = result[j];
             j++;
-            // k++;
             for (int it : adj[node]) {
                 parent[it]--;
                 if (parent[it] == 0)
