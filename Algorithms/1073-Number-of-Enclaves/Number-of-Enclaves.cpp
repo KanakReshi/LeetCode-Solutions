@@ -19,37 +19,13 @@ public:
     int numEnclaves(vector<vector<int>>& grid) {
         int m = grid.size();
         int n = grid[0].size();
-        // for(int i = 0 ; i < m ;i++){
-        //     if(grid[i][0] == 1)dfs(grid,i,0);
-        //     if(grid[i][n-1] == 1)dfs(grid,i,n-1);
-        // }
-        // for(int i = 0 ; i < n ;i++){
-        //     if(grid[0][i] == 1)dfs(grid,0,i);
-        //     if(grid[m-1][i] == 1)dfs(grid,m-1,i);
-        // }
-
-        for (int i = 0; i < m; i++) {
-            if (grid[i][0] == 0 || grid[i][0] == '#')
-                continue;
-            else
-                dfs(grid, i, 0);
+        for(int i = 0 ; i < m ;i++){
+            if(grid[i][0] == 1)dfs(grid,i,0);
+            if(grid[i][n-1] == 1)dfs(grid,i,n-1);
         }
-        for (int i = 0; i < n; i++) {
-            if (grid[0][i] == 0  || grid[0][i] == '#')
-                continue;
-            else
-                dfs(grid, 0, i);
-        }
-        for (int i = 0; i < m; i++) {
-            if (grid[i][n - 1] == 0 || grid[i][n - 1] == '#')
-                continue;
-            else
-                dfs(grid, i, n - 1);
-        }
-        for (int i = 0; i < n; i++) {
-            if (grid[m - 1][i] == 0 || grid[m - 1][i] == '#')
-                continue;
-            dfs(grid, m - 1, i);
+        for(int i = 0 ; i < n ;i++){
+            if(grid[0][i] == 1)dfs(grid,0,i);
+            if(grid[m-1][i] == 1)dfs(grid,m-1,i);
         }
         int result = 0;
         for (int i = 0; i < m; i++) {
