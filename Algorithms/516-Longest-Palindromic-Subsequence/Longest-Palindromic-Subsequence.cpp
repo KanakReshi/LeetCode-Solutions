@@ -3,7 +3,7 @@ class Solution {
         if(i > j)return 0;
         if(i==j)return 1;
         if(dp[i][j] != -1)return dp[i][j];
-        if(s[i] == s[j])return 2 + create(s,i+1,j-1,dp);
+        if(s[i] == s[j])return dp[i][j] = 2 + create(s,i+1,j-1,dp);
         int left_side = create(s,i,j-1,dp);
         int right_side = create(s,i+1,j,dp);
         return dp[i][j] = max(left_side,right_side);
