@@ -1,18 +1,18 @@
 class Solution {
 public:
     int maxProduct(vector<int>& nums) {
-        int right = 1;
-        int left = 1;
+        int n = nums.size();
+        int maxelem = 1;
+        int minelem = 1;
         int result = INT_MIN;
-        int len = nums.size();
-        for(int i = 0; i<len;i++){
-            if(left==0)left=1;
-            if(right==0)right=1;
-            right = right*nums[i]; 
-            left = left * nums[len-i-1];
-            result = max(result,max(left,right));
+        for(int i = 0 ; i< n ;i++){
+            int v1 = maxelem*nums[i];
+            int v2 = nums[i];
+            int v3 = minelem*nums[i];
+            maxelem = max(v1,max(v2,v3));
+            minelem = min(v1,min(v2,v3));
+            result = max(result,maxelem);
         }
-
         return result;
     }
 };
